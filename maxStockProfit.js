@@ -1,4 +1,4 @@
-// takes in anrray of prices as parameter
+// takes in an array of prices as parameter
 // a max profit of 0 is treated as any other max profit value
 // solution in O(n) - linear - runtime
 // returns the max possible profit of the day
@@ -27,4 +27,21 @@ function maxStockProfit(pricesArr) {
   return maxProfit;
 }
 
-maxStockProfit([10, 18, 4, 5, 9, 6, 16, 12]);
+// solution in O(n2) - linear - runtime
+function quadMaxProfit(pricesArr) {
+  maxProfit = -1;
+  for (var i = 0; i < pricesArr.length - 1; i++) {
+    for (var j = i + 1; j < pricesArr.length - 1; j++) {
+      if (pricesArr[i] < pricesArr[j]) {
+        var profit = pricesArr[j] - pricesArr[i];
+        if (maxProfit < profit) maxProfit = profit;
+      }
+    }
+  }
+  return maxProfit;
+}
+
+console.log(maxStockProfit([10, 18, 4, 5, 9, 6, 16, 12]));
+console.log(maxStockProfit([7, 13, 2, 9, 11, 3]));
+console.log(quadMaxProfit([10, 18, 4, 5, 9, 6, 16, 12]));
+console.log(quadMaxProfit([7, 13, 2, 9, 11, 3]));

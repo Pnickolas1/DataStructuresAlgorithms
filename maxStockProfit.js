@@ -27,7 +27,7 @@ function maxStockProfit(pricesArr) {
   return maxProfit;
 }
 
-// solution in O(n2) - linear - runtime
+// solution in O(n2) - quadratic - runtime
 function quadMaxProfit(pricesArr) {
   maxProfit = -1;
   for (var i = 0; i < pricesArr.length - 1; i++) {
